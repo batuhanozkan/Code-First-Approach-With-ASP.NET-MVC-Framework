@@ -1,0 +1,38 @@
+﻿
+@model List<hikayeyaziyoruz.Data.metin>
+    @{int a = 2; }
+
+<div>
+    @foreach (var item in Model)
+    {
+
+        <b> @hikayeyaziyoruz.Resources.Home.mt @a </b>
+
+
+
+        <p>
+            @{int b = Convert.ToInt32(Session["id"]);
+                if (b == 10)
+                {
+            @Html.ActionLink(hikayeyaziyoruz.Resources.Home.sil, "metinsil", new { metinID = item.metinId })
+                    }
+                }
+            <br/>
+           <i> @item.Metin</i><br/> @{a = a + 1;
+            }
+            @Html.Label(hikayeyaziyoruz.Resources.Home.my)
+            @Html.ActionLink(item.Uye.kullaniciAdi, "uyebilgi", new { uyeID = item.Uye.UyeId })
+
+        </p>
+               
+
+
+               
+
+               }
+
+
+
+
+
+</div>

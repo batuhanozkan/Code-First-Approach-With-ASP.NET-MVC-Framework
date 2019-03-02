@@ -1,0 +1,66 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Hikaye Yazıyoruz</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+
+    <div class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+
+
+               
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><button type="button" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-home"></span>@Html.ActionLink(hikayeyaziyoruz.Resources.Home.Index, "Index", "Home", new { @style = "color:#FFFFFF;" })</button></li>
+                    <li><button type="button" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-book"></span>@Html.ActionLink(hikayeyaziyoruz.Resources.Home.tumh, "hikayeler", "Home", new { @style = "color:#FFFFFF;" })</button></li>
+                    <li><button type="button" class="btn btn-success btn-lg"> <span class="glyphicon glyphicon-plus-sign"></span>@Html.ActionLink(hikayeyaziyoruz.Resources.Home.hikek, "ekle", "Home", new { @style = "color:#FFFFFF;" })</button></li>
+                    <li><button type="button" class="btn btn-success btn-lg"> <span class="glyphicon glyphicon-question-sign"></span>@Html.ActionLink(hikayeyaziyoruz.Resources.Home.bune, "nedir", "Home", new { @style = "color:#FFFFFF;" })</button></li>
+                    <li>@Html.ActionLink("English", "Change", "Language", new { languageSelect = "en" }, null)</li>
+                    <li>@Html.ActionLink("Türkçe", "Change", "Language", new { languageSelect = "tr" }, null)</li>
+                     @if (Session["id"] != null)
+{
+                   
+                    <li>@Html.ActionLink(hikayeyaziyoruz.Resources.Home.profil, "profil", "Home")</li>
+                    <li>@Html.ActionLink(hikayeyaziyoruz.Resources.Home.cikis, "cikis", "Home")</li>
+}
+else
+{
+    <li> @Html.ActionLink(hikayeyaziyoruz.Resources.Home.giris, "uyegiris", "Home") </li>
+    <li> @Html.ActionLink(hikayeyaziyoruz.Resources.Home.uyeol, "uyeol", "Home") </li>
+}
+
+           </ul>
+
+
+
+                @*@Html.Partial("_LoginPartial")*@
+                
+            </div>
+            
+        </div>
+       
+    </div>
+    
+    
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Hikaye Yazıyoruz Batuhan Özkan</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

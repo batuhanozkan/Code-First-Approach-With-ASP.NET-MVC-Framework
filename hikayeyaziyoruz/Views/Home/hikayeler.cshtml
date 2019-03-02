@@ -1,0 +1,49 @@
+﻿@model List<hikayeyaziyoruz.Data.anametin>
+@{
+    ViewBag.Title = "Hikayeler";
+}
+
+
+<div class="row">
+
+    <h6 style="color:green;font-size: 36px;text-align: center">@hikayeyaziyoruz.Resources.Home.tumh</h6>
+
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@hikayeyaziyoruz.Resources.Home.hikad</th>
+            <th>@hikayeyaziyoruz.Resources.Home.byaz</th>
+            <th>@hikayeyaziyoruz.Resources.Home.hiktur</th>
+            <th>@hikayeyaziyoruz.Resources.Home.ekt </th>
+            <th>@hikayeyaziyoruz.Resources.Home.oks</th>
+
+        </tr>
+    </thead>
+    <tbody>
+       @foreach (var item in Model)
+       {
+        <tr class="success">
+            <td>@Html.ActionLink(item.hikayeAdi, "butunhikaye", new { anametinID = item.anametinId })</td>
+            <td>@Html.ActionLink(item.Uye.kullaniciAdi, "uyebilgi", new { uyeID = item.Uye.UyeId })</td>
+            <td>@item.hikayeTuru</td>
+            <td>@item.Tarih</td>
+            <td>1</td>
+            @{int a = Convert.ToInt32(Session["id"]);
+            }
+            @if (a == 10)
+            {
+                <td>@Html.ActionLink(@hikayeyaziyoruz.Resources.Home.sil, "hikayesil", new { anametinID = item.anametinId })</td>
+            }
+
+        </tr>
+       }
+    </tbody>
+</table>
+<ul class="pagination pagination-sm">
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+</ul>

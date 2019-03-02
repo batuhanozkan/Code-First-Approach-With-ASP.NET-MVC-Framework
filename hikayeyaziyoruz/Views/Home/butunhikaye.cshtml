@@ -1,0 +1,114 @@
+﻿@model hikayeyaziyoruz.Data.anametin
+
+@{
+    ViewBag.Title = "butunhikaye";
+}
+
+<div style="width:100%;margin-top:25px;box-shadow:0 0 5px gray;padding:25px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <h2>@Model.hikayeAdi</h2>
+
+                <br />
+                @Html.Label(hikayeyaziyoruz.Resources.Home.hiktur)
+                @Html.DisplayFor(i => Model.hikayeTuru)
+                <br />
+                @Html.Label(hikayeyaziyoruz.Resources.Home.ekt)
+                @Html.DisplayFor(i => Model.Tarih)
+                <br />
+                @Html.Label(hikayeyaziyoruz.Resources.Home.byaz)
+                @Html.ActionLink(Model.Uye.kullaniciAdi, "uyebilgi", new { uyeID = Model.Uye.UyeId })
+                <br />
+                @*@Html.Label("Hikayenin Ana Metni:")*@
+                <b>@hikayeyaziyoruz.Resources.Home.ilkbol</b>
+                <br/>
+                <i>
+                    @Html.DisplayFor(i => Model.anaMetin)
+                </i>
+                <br />
+
+            </div>
+            <div class="col-md-3">
+                <a href="#"><img src="~/kitap.png" width="300" height="300" alt="Örnek Resim" border="0"></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+                
+                @Html.Action("altmetinler", new { anametinID = Model.anametinId })
+            </div>
+            <div class="col-md-5">
+
+                <a href="#"><img src="~/kagit.png" width="200" height="300" alt="Örnek Resim" border="0"></a>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @if (Session["id"] != null)
+            {
+
+                    @Html.Action("metinekle", new { anametinIDd = Model.anametinId })
+                }
+            </div>
+        </div>
+        @*<td>@Html.ActionLink(item.hikayeAdi, "butunhikaye", new { anametinID = item.anametinId })</td>*@
+        <div class="row">
+            <div class="col-md-6">
+                @Html.Action("yorumlar", new { anametinID = Model.anametinId })
+            </div>
+            <div class="col-md-6">
+                <a href="#"><img src="~/kalem.png" width="300" height="300" alt="Örnek Resim" border="0"></a>
+            </div>
+
+        </div>
+        @if (Session["id"] != null)
+            {
+            <div class="row">
+                <div class="col-md-6">
+                    @Html.Action("yorumekle", new { anametinID = Model.anametinId })
+                </div>
+               
+                </div>
+        }
+        else
+        {
+            <div class="row">
+                <div class="col-md-1">
+                    <h1> @hikayeyaziyoruz.Resources.Home.uya </h1>
+                </div>
+            </div>
+        }
+
+
+        </>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

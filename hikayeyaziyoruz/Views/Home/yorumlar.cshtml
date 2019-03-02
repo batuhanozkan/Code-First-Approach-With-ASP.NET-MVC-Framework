@@ -1,0 +1,25 @@
+﻿@model List<hikayeyaziyoruz.Data.Yorum>
+
+<h2>@hikayeyaziyoruz.Resources.Home.yl</h2>
+
+@foreach (var item in Model)
+{
+    int d = Convert.ToInt32(Session["id"]);
+
+
+    if (d == 10)
+    {
+        @Html.ActionLink(hikayeyaziyoruz.Resources.Home.sil, "yorumsil", new { metinID = item.YorumId })
+    }
+    <br />
+    @Html.Label(hikayeyaziyoruz.Resources.Home.kula)
+    @Html.DisplayFor(i => item.Uye.kullaniciAdi)
+    <br />
+    @Html.Label(hikayeyaziyoruz.Resources.Home.yr)
+    <br />
+    @Html.DisplayFor(i => item.Icerik)
+   <br/>
+    
+}
+
+

@@ -1,0 +1,35 @@
+﻿@model hikayeyaziyoruz.Data.Uye
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>uyebilgi</title>
+</head>
+<body>
+    <div> <ul>
+    <li>@hikayeyaziyoruz.Resources.Home.kula @Model.kullaniciAdi</li>
+    <li>
+        @hikayeyaziyoruz.Resources.Home.ad @Model.Ad
+    </li>
+    <li>
+        @hikayeyaziyoruz.Resources.Home.soyad @Model.Soyad
+    </li>
+    <li>E-Posta: @Model.EPosta</li>
+</ul>
+    </div>
+   
+        <h1>@hikayeyaziyoruz.Resources.Home.eh</h1>
+        @foreach (var item in Model.anametins)
+        {
+            <ul>
+                <il>
+             @item.hikayeAdi;
+                </il>
+            </ul>
+        }
+</body>
+</html>

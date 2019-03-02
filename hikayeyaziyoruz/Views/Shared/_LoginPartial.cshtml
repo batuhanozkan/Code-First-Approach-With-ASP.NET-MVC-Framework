@@ -1,0 +1,27 @@
+﻿@if (Session["id"] != null)
+{
+    <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            
+            <li><button type="button" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-book"></span>@Html.ActionLink("Profil", "profil", "Home", new { @style = "color:#FFFFFF;" })</button></li>
+            <li><button type="button" class="btn btn-success btn-lg"> <span class="glyphicon glyphicon-plus-sign"></span>@Html.ActionLink("Çıkış", "cikis", "Home", new { @style = "color:#FFFFFF;" })</button></li>
+           
+        </ul>
+        </div>
+}
+
+else
+{
+
+    
+        <ul class="nav navbar-nav navbar-right">
+
+            <li><span class="glyphicon glyphicon-book">@Html.ActionLink("Giriş", "uyegiris", "Home")</span></li>
+            <li><span class="glyphicon glyphicon-plus-sign">@Html.ActionLink("Üye Ol", "uyeol", "Home")</span></li>
+
+        </ul>
+    
+
+
+}
+

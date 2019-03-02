@@ -1,0 +1,79 @@
+﻿@model hikayeyaziyoruz.Data.Uye
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>uyeol</title>
+</head>
+<body>
+    @using (Html.BeginForm("uyeol", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        <div class="container">
+            <div>
+                <div class="jumbotron">
+                    <h1>@hikayeyaziyoruz.Resources.Home.us</h1>
+                    <p> @hikayeyaziyoruz.Resources.Home.ta</p>
+                </div>
+            </div>
+            <div>
+                <div class="form-group row">
+
+                    <label class="control-label col-sm-2">@hikayeyaziyoruz.Resources.Home.kula</label>
+                    <div class="col-sm-2">
+                        @Html.TextBoxFor(i => Model.kullaniciAdi)
+                        @*<input class="form-control" type="text" name="Ad" placeholder="Hikaye Adını Giriniz" />*@
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="control-label col-sm-2"> E-Mail</label>
+                    <div class="col-sm-2">
+
+                        @Html.TextBoxFor(i => Model.EPosta)
+                        @*<select class="form-control" id="sel1">
+                                <option>Macera</option>
+                                <option>Dram</option>
+                                <option>Komedi</option>
+                                <option>Aşk</option>
+                            </select>*@
+
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2"> @hikayeyaziyoruz.Resources.Home.sf:</label>
+                <div class="col-sm-4">
+                    @*<textarea class="form-control" cols="200" rows="15" id="comment"></textarea>*@
+                    @Html.PasswordFor(i => Model.sifre)
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2"> @hikayeyaziyoruz.Resources.Home.ad</label>
+                <div class="col-sm-4">
+                    @*<textarea class="form-control" cols="200" rows="15" id="comment"></textarea>*@
+                    @Html.TextBoxFor(i => Model.Ad)
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2"> @hikayeyaziyoruz.Resources.Home.soyad</label>
+                <div class="col-sm-2">
+                    @*<input class="form-control" type="text" name="Not" placeholder="Hikayenin Ana Fikrini Giriniz" />*@
+                    @Html.TextBoxFor(i => Model.Soyad)
+
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col-sm-offset-2">
+                    <button class="btn btn-danger" type="submit" value="Ekle"> @hikayeyaziyoruz.Resources.Home.uyeol </button>
+                </div>
+            </div>
+
+        </div>
+    }
+</body>
+</html>

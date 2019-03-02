@@ -1,0 +1,67 @@
+﻿@model hikayeyaziyoruz.Data.anametin
+@{
+    ViewBag.Title = "Hikaye Ekleme";
+}
+
+
+@using (Html.BeginForm("ekle", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="container">
+        <div>
+            <div class="jumbotron">
+                <h1>@hikayeyaziyoruz.Resources.Home.ols</h1>
+                <p> @hikayeyaziyoruz.Resources.Home.ta</p>
+            </div>
+        </div>
+        <div>
+            <div class="form-group row">
+                
+                <label class="control-label col-sm-2">@hikayeyaziyoruz.Resources.Home.hikad</label>
+                <div class="col-sm-2">
+                    @Html.TextBoxFor(i => Model.hikayeAdi)
+                    @*<input class="form-control" type="text" name="Ad" placeholder="Hikaye Adını Giriniz" />*@
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="control-label col-sm-2"> @hikayeyaziyoruz.Resources.Home.hiktur</label>
+                <div class="col-sm-2">
+
+                    @Html.TextBoxFor(i => Model.hikayeTuru)
+                    @*<select class="form-control" id="sel1">
+                        <option>Macera</option>
+                        <option>Dram</option>
+                        <option>Komedi</option>
+                        <option>Aşk</option>
+                    </select>*@
+
+
+
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2"> @hikayeyaziyoruz.Resources.Home.ilkbol</label>
+            <div class="col-sm-4">
+                @*<textarea class="form-control" cols="200" rows="15" id="comment"></textarea>*@
+                @Html.TextAreaFor(i => Model.anaMetin,new { cols = "200", rows = "15" })
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2"> @hikayeyaziyoruz.Resources.Home.af</label>
+            <div class="col-sm-2">
+                @*<input class="form-control" type="text" name="Not" placeholder="Hikayenin Ana Fikrini Giriniz" />*@
+                @Html.TextBoxFor(i => Model.anaFikir)
+                
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-offset-2">
+                <button class="btn btn-danger" type="submit" value="Ekle"> @hikayeyaziyoruz.Resources.Home.ekle </button>
+            </div>
+        </div>
+
+    </div>
+    
+
+
+}

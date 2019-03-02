@@ -1,0 +1,47 @@
+﻿@model hikayeyaziyoruz.Data.Uye
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>uyegiris</title>
+</head>
+<body>
+    
+@using (Html.BeginForm("uyegiris", "Home", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    <div class="container">
+
+
+        <div class="form-group row">
+            <label class="control-label col-sm-2"> @hikayeyaziyoruz.Resources.Home.kula</label>
+
+            <div class="col-sm-4">
+                
+                @Html.TextBoxFor(i => Model.kullaniciAdi)
+
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="control-label col-sm-2"> @hikayeyaziyoruz.Resources.Home.sf</label>
+
+            <div class="col-sm-4">
+
+                @Html.PasswordFor(i => Model.sifre)
+
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-offset-2">
+                <button class="btn btn-danger" type="submit" value="Ekle"> @hikayeyaziyoruz.Resources.Home.gr </button>
+            </div>
+        </div>
+
+    </div>
+
+    
+}
+</body>
+</html>

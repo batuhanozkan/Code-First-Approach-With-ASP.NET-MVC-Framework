@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Hikaye Yazıyoruz";
+}
+
+<div class="jumbotron">
+    <h1>@hikayeyaziyoruz.Resources.Home.baslik</h1>
+    <p class="lead">@hikayeyaziyoruz.Resources.Home.aciklama</p>
+    <p>@Html.ActionLink(hikayeyaziyoruz.Resources.Home.basla, "ekle", "Home", new { @class = "btn btn-primary btn-lg" })</p></p>
+</div>
+<
+<div class="container">
+    <div class="row">
+       
+        
+        @Html.Action("populerHikayeler")
+        </div>
+    </div>
+
+
+        
+
+
+
